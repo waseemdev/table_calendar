@@ -14,6 +14,7 @@ dependencies:
 
   intl: ^0.17.0
   simple_gesture_detector: ^0.2.0
+  isoweek: ^1.1.4
 
 dev_dependencies:
   flutter_test:

@@ -6,6 +6,7 @@ import 'dart:math';
 import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
 import 'package:simple_gesture_detector/simple_gesture_detector.dart';
+import 'package:isoweek/isoweek.dart';
 
 import 'customization/calendar_builders.dart';
 import 'customization/calendar_style.dart';
@@ -557,10 +558,12 @@ class _TableCalendarState<T> extends State<TableCalendar<T>> {
   }
 
   int isoWeekNumber(DateTime date) {
-    int daysToAdd = DateTime.thursday - date.weekday;
-    DateTime thursdayDate = daysToAdd > 0 ? date.add(Duration(days: daysToAdd)) : date.subtract(Duration(days: daysToAdd.abs()));
-    int dayOfYearThursday = dayOfYear(thursdayDate);
-    return 1 + ((dayOfYearThursday - 1) / 7).floor();
+    // int daysToAdd = DateTime.thursday - date.weekday;
+    // DateTime thursdayDate = daysToAdd > 0 ? date.add(Duration(days: daysToAdd)) : date.subtract(Duration(days: daysToAdd.abs()));
+    // int dayOfYearThursday = dayOfYear(thursdayDate);
+    // return 1 + ((dayOfYearThursday - 1) / 7).floor();
+    final week = Week.fromDate(date);
+    return week.weekNumber;
   }
 
   int dayOfYear(DateTime date) {
